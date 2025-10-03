@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edward George - Structural Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #000;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.3em;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: #000;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: background-color 0.3s;
+            display: block;
+            padding: 20px 25px;
+            font-weight: 400;
+        }
+
+        nav a:hover {
+            background-color: #333;
+        }
+
+        section {
+            background-color: white;
+            margin-bottom: 0;
+            padding: 60px 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #000;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #000;
+            font-weight: 400;
+        }
+
+        .intro-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .about-text {
+            line-height: 1.8;
+        }
+
+        .about-facts {
+            background-color: #f8f8f8;
+            padding: 30px;
+            border-left: 3px solid #000;
+        }
+
+        .about-facts h3 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        .about-facts p {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .project-photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .project-photos img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border: 1px solid #e0e0e0;
+        }
+
+        .photo-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .course-card {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-left: 3px solid #000;
+        }
+
+        .course-card h4 {
+            color: #000;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+            font-weight: 400;
+        }
+
+        .course-card h4 a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s;
+        }
+
+        .course-card h4 a:hover {
+            border-bottom: 1px solid #000;
+        }
+
+        .course-code {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .grade {
+            display: inline-block;
+            background-color: #000;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 0.85em;
+            margin-top: 5px;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.2em;
+            color: #000;
+            font-weight: 500;
+        }
+
+        .experience-date {
+            color: #666;
+            font-style: italic;
+            font-size: 0.95em;
+        }
+
+        .experience-company {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            background-color: #f8f8f8;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .accomplishment-placeholder {
+            background-color: #ecf0f1;
+            padding: 30px;
+            text-align: center;
+            color: #7f8c8d;
+            font-style: italic;
+            border: 2px dashed #bdc3c7;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 0;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav li {
+                margin: 0;
+            }
+
+            nav a {
+                padding: 15px 20px;
+                border-bottom: 1px solid #333;
+            }
+
+            section {
+                padding: 40px 25px;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-photos {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ted George</h1>
+        <p>Structural Engineer</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#courses">Coursework</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#accomplishments">Accomplishments</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="intro-text">
+                        I am a recent graduate of Cornell University. I grew up in the Philadelphia suburbs and attended Haddonfield Memorial High School. I completed a BA in Civil Engineering in May 2024 and an Master of Engineering in Structural Engineering in December 2024.
+                    </p>
+                    <p class="intro-text">
+                        A few fun facts about me: I play jazz piano, love Persianate architecture and traveled the Silk Road from Turkey to China in spring 2025.
+                    </p>
+                    
+                    <div class="project-photos">
+                        <div>
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%23e0e0e0'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='%23666' text-anchor='middle' dominant-baseline='middle'%3EBridge Construction - Eswatini%3C/text%3E%3C/svg%3E" alt="Bridge construction in Eswatini">
+                            <p class="photo-caption">Bridge construction site in Eswatini, Summer 2022</p>
+                        </div>
+                        <div>
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%23e0e0e0'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='%23666' text-anchor='middle' dominant-baseline='middle'%3E3D Printed Concrete Project%3C/text%3E%3C/svg%3E" alt="3D printed concrete project">
+                            <p class="photo-caption">3D printed concrete slab topology optimization project</p>
+                        </div>
+                        <div>
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%23e0e0e0'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='%23666' text-anchor='middle' dominant-baseline='middle'%3EItaipu Dam Tour%3C/text%3E%3C/svg%3E" alt="Itaipu Dam tour">
+                            <p class="photo-caption">Engineering tour of Itaipu Dam</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-facts">
+                    <h3>Quick Facts</h3>
+                    <p><strong>Education:</strong> BS in Civil Engineering, M.Eng in Structural Engineering, Cornell University (2024)</p>
+                    <p><strong>Hometown:</strong> Haddonfield, NJ</p>
+                    <p><strong>Current Location:</strong> Seattle, WA</p>
+                    <p><strong>Clearance:</strong> Active Secret</p>
+                    <p><strong>Status:</strong> EIT (Passed FE Exam, 2024)</p>
+                    <p><strong>Interests:</strong> Jazz Piano, Biking, Travel</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Structural Engineer Intern</span>
+                    <span class="experience-date">Summer 2024</span>
+                </div>
+                <div class="experience-company">Gilsanz Murray Stefieck LLP | Bloomfield, NJ</div>
+                <ul>
+                    <li>Served as lead designer for gravity and lateral structural systems of a commercial warehouse using ETABS and supporting hand calculations, presenting design to building owner, superintendent, and principal engineer</li>
+                    <li>Analyzed stresses and deflections of two-way slab systems using ANSYS to identify worst-case pattern loading conditions, reducing material requirements compared to traditional analysis methods</li>
+                    <li>Developed Excel optimization model to determine most cost-effective beam and girder assemblies, applying it to all gravity systems during early-stage planning and accelerating progression from conceptual design to early revisions</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Project Management Intern</span>
+                    <span class="experience-date">Summer 2023</span>
+                </div>
+                <div class="experience-company">ECS Mid-Atlantic | Philadelphia, PA</div>
+                <ul>
+                    <li>Estimated material and labor costs for upcoming projects, securing multiple consulting projects for the firm</li>
+                    <li>Managed weekly schedules for team of 11 inspectors across 25 construction sites while adapting to frequent timeline adjustments, optimizing labor resources and demonstrating industry-leading reliability</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <span class="experience-title">Construction Manager & Design Engineer</span>
+                    <span class="experience-date">Summer 2022</span>
+                </div>
+                <div class="experience-company">Engineers In Action | Ithaca, NY and Eswatini</div>
+                <ul>
+                    <li>Developed and applied geotechnical design tool to more accurately reflect soil friction as design lead, significantly reducing concrete and stone masonry requirements compared to previous projects</li>
+                    <li>Led on-site construction team in Eswatini, organizing material deliveries, coordinating local skilled and unskilled labor, and facilitating cross-cultural engineering exchange to meet seven-week project timeline</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="courses">
+            <h2>Advanced Coursework</h2>
+            <p>Selected graduate and upper-level courses from Cornell University's structural engineering program:</p>
+            
+            <div class="course-grid">
+                <div class="course-card">
+                    <h4><a href="https://classes.cornell.edu/browse/roster/FA24/class/MAE/5700" target="_blank">Finite Element Analysis for Mechanical & Aerospace Design</a></h4>
+                    <div class="course-code">MAE 5700</div>
+                </div>
+
+                <div class="course-card">
+                    <h4><a href="https://classes.cornell.edu/browse/roster/FA24/class/CEE/5746" target="_blank">Automation in Construction</a></h4>
+                    <div class="course-code">CEE 5746</div>
+                </div>
+
+                <div class="course-card">
+                    <h4><a href="https://classes.cornell.edu/browse/roster/SP24/class/CEE/5770" target="_blank">Concrete & Steel Design II</a></h4>
+                    <div class="course-code">CEE 5770</div>
+                </div>
+
+                <div class="course-card">
+                    <h4><a href="https://classes.cornell.edu/browse/roster/FA24/class/CEE/6736" target="_blank">Mathematical Modeling of Systems</a></h4>
+                    <div class="course-code">CEE 6736</div>
+                </div>
+
+                <div class="course-card">
+                    <h4><a href="https://classes.cornell.edu/browse/roster/FA23/class/CEE/5665" target="_blank">Optimization for Infrastructure Systems</a></h4>
+                    <div class="course-code">CEE 5665</div>
+                </div>
+
+                <div class="course-card">
+                    <h4><a href="https://classes.cornell.edu/browse/roster/FA24/class/CEE/6780" target="_blank">Structural Dynamics & Earthquake Engineering</a></h4>
+                    <div class="course-code">CEE 6780</div>
+                </div>
+
+                <div class="course-card">
+                    <h4><a href="https://classes.cornell.edu/browse/roster/SP24/class/CEE/6370" target="_blank">Experimental Methods in Fluid Dynamics</a></h4>
+                    <div class="course-code">CEE 6370</div>
+                </div>
+
+                <div class="course-card">
+                    <h4><a href="https://classes.cornell.edu/browse/roster/FA24/class/CEE/5710" target="_blank">Timber Behavior and Design</a></h4>
+                    <div class="course-code">CEE 5710</div>
+                </div>
+
+                <div class="course-card">
+                    <h4><a href="https://classes.cornell.edu/browse/roster/SP23/class/CEE/6075" target="_blank">Foundation Engineering</a></h4>
+                    <div class="course-code">CEE 6075</div>
+                </div>
+
+                <div class="course-card">
+                    <h4><a href="https://classes.cornell.edu/browse/roster/FA23/class/CEE/6075" target="_blank">Forensic Engineering</a></h4>
+                    <div class="course-code">CEE 6075</div>
+                </div>
+
+                <div class="course-card">
+                    <h4><a href="https://classes.cornell.edu/browse/roster/SP24/class/CEE/6075" target="_blank">Tall Buildings</a></h4>
+                    <div class="course-code">CEE 6075</div>
+                </div>
+
+                <div class="course-card">
+                    <h4><a href="https://classes.cornell.edu/browse/roster/SP23/class/CEE/4725" target="_blank">Intermediate Solid Mechanics</a></h4>
+                    <div class="course-code">CEE 4725</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Academic Projects</h2>
+            
+            <div class="experience-item">
+                <h3>3D Printed Concrete Slab Design</h3>
+                <div class="experience-company">Automation in Construction | Cornell University | Fall 2024</div>
+                <ul>
+                    <li>3D printed concrete two-way slab and column assembly using RHINO and Grasshopper for design and scripting</li>
+                    <li>Developed MATLAB topology optimization tool to evaluate performance of ribbed slab versus traditional design</li>
+                    <li>Created novel procedure for steel reinforcement implementation within bonded layers of concrete paste</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Airplane Wing Design</h3>
+                <div class="experience-company">FEA for Mechanical and Aerospace Design | Cornell University | Fall 2024</div>
+                <ul>
+                    <li>Designed airplane wing using ANSYS, optimizing geometric and material constraints to minimize weight</li>
+                    <li>Confirmed convergence of discrete model to continuous case with adaptive mesh refinement</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">ANSYS Workbench</div>
+                <div class="skill-item">MATLAB</div>
+                <div class="skill-item">RHINO</div>
+                <div class="skill-item">Grasshopper</div>
+                <div class="skill-item">AutoCAD</div>
+                <div class="skill-item">ETABS</div>
+                <div class="skill-item">R</div>
+                <div class="skill-item">Excel</div>
+                <div class="skill-item">SolidWorks</div>
+            </div>
+        </section>
+
+        <section id="accomplishments">
+            <h2>Accomplishments & Recognition</h2>
+            
+            <div class="experience-item">
+                <h3>Master of Engineering Fellowship Award</h3>
+                <div class="experience-company">Cornell University | 2024</div>
+                <p>Awarded fellowship for Master of Engineering program in Structural Engineering</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Cum Laude</h3>
+                <div class="experience-company">Cornell University | 2024</div>
+                <p>Bachelor of Science in Civil Engineering, GPA: 3.56</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Dean's List</h3>
+                <div class="experience-company">Cornell University | Multiple Semesters</div>
+                <p>Fall 2020, Spring 2021, Fall 2022, Spring 2024</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>NCEES Fundamentals of Engineering Exam</h3>
+                <div class="experience-company">Passed | 2024</div>
+                <p>Successfully passed FE exam, first step toward Professional Engineering licensure</p>
+            </div>
+
+            <div class="accomplishment-placeholder">
+                Additional accomplishments, publications, and certifications will be added here as career progresses
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Email:</strong> ewg35@cornell.edu
+                </div>
+                <div class="contact-item">
+                    <strong>Phone:</strong> (609) 238-1046
+                </div>
+                <div class="contact-item">
+                    <strong>Location:</strong> Seattle, WA
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ted George. All rights reserved.</p>
+    </footer>
+</body>
+</html>
